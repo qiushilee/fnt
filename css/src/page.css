@@ -1,0 +1,43 @@
+/*requires reset.css*/
+/*requires font.css*/
+/*requires common.css*/
+/*requires grid.css*/
+/*requires layout.css*/
+/*
+ * Pagination style
+ * http://qslee.com/
+ *
+ * @author: showbei@gmail.com
+ */
+.pagination {
+	clear:both;
+	padding-top:3px;
+	padding-bottom:2px
+}
+.pagination .pagestatus {
+	margin-right:10px;
+	color:#777;
+}
+.pagination .pagestatus strong {
+	padding:0 3px;
+	color:#c00;
+}
+.pagination .disable {
+	color:#ccc;
+}
+.pagination a {
+	margin:2px;
+	padding:1px 3px;
+	border:solid 1px #ccc;
+	background-color:white;
+	color:#666;
+}
+.pagination a:hover {
+	color:#c00;
+}
+.pagination .current {
+	border:0;
+	color:#c00;
+	background:#f7f7f7;
+	font-weight:bold;
+}

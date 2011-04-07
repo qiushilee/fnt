@@ -1,0 +1,5 @@
+{if $isHome}
+<body class="home">
+{else}
+<body class="page">
+{/if}

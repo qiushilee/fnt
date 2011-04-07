@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		{json file="build/data.json" assign="data"}
+		<title>{$data.base.title}</title>
+{include file="mod/mod-css"}
+	</head>
+
+	{include file="mod/mod-body"}
+		<div class="grid" id="doc">
+			<div class="header" id="header">
+				<h1 class="logo-container">
+					<a href="#_" class="logo">{$data.base.title}</a>
+				</h1>
+			</div>
+

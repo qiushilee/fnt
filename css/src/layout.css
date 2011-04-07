@@ -1,0 +1,33 @@
+/*requires reset.css*/
+/*requires font.css*/
+/*requires common.css*/
+/*requires grid.css*/
+/*
+ * Layout style
+ * http://qslee.com/
+ *
+ * @author: showbei@gmail.com
+ */
+
+/* Base {{{ */
+
+/* hide text */
+.logo {
+	text-indent:-9999px;
+}
+/* }}} */
+
+/* Header {{{ */
+
+/* .logo */
+.logo {
+	display:block;
+	overflow:hidden;
+}
+/* }}} */
+
+/* Content {{{ */
+/* }}} */
+
+/* Footer {{{ */
+/* }}} */

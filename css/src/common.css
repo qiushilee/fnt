@@ -1,0 +1,67 @@
+/*requires reset.css*/
+/*requires font.css*/
+/*
+ * Common style
+ * http://qslee.com/
+ *
+ * @author: showbei@gmail.com
+ */
+
+/* 鼠标指针 .pro {{{ */
+.por {
+	cursor: pointer;
+}
+/* }}} */
+
+/* 隐藏元素 .hidden {{{ */
+.hidden {
+	display: none;
+}
+/* }}} */
+
+/* 清除浮动 .clear {{{ */
+.clear {
+	clear:both;
+	zoom:1;
+}
+.clear:after {
+	display:block;
+	clear:both;
+	content:"";
+	visibility:hidden;
+	height:0;
+}
+/* }}} */
+
+/* 阴影 .shadow {{{ */
+.shadow {
+	-moz-box-shadow: 4px 4px 4px #ddd;
+	-webkit-box-shadow: 4px 4px 4px #ddd;
+	box-shadow: 4px 4px 4px #ddd;
+	/* For IE 8 */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=150, Color='#dddddd')";
+	/* For IE 5.5 - 7 */
+	filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=150, Color='#ddddd');
+}
+/* }}} */
+
+/* JS lib {{{ */
+/*
+.eui-console{
+	position:absolute;top:0;right:10%;
+	padding:15px;border:1px solid #333;
+	background-color:#eee;font-family:Tahoma;
+}
+*/
+/*
+.en #www-eb-com{
+	font:13px/24px Tahoma,Helvetica,Arial,sans-serif
+}
+#pixel-perfect{
+	position:absolute;top:0;left:129px;opacity:0.5;filter:alpha(opacity=50);
+}
+.iepng{
+	behavior:url(js/iepngfix.htc)
+}
+*/
+/* }}} */

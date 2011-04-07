@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="css" default="main">
+	<!-- 输出目录 -->
+	<property name="build.dir" value="." />
+
+	<!-- 源文件目录 -->
+	<property name="src.dir" value="src" />
+
+	<!-- JAR -->
+	<property name="min.css.jar" value="../build/lib/yuicompressor.jar" />
+	<property name="combiner.jar" value="../build/lib/combiner.jar" />
+
+	<target name="main">
+		<!-- 合并所有 CSS 文件 -->
+		<apply executable="java" parallel="true" failonerror="true">
+			<fileset dir="${src.dir}" includes="*.css" />
+			<arg line="-jar" />
+			<arg path="${combiner.jar}" />
+			<arg line="–charset utf-8" />
+			<arg line="-o ${src.dir}/layout-all.css" />
+			<srcfile />
+		</apply>
+
+		<!-- 替换 img 目录 -->
+		<replaceregexp replace="../img" flags="g" match="../../img" encoding="UTF-8">
+			<fileset dir="${src.dir}/" includes="layout-all.css" />
+		</replaceregexp>
+
+		<!-- 压缩 CSS 文件 -->
+		<apply executable="java" parallel="false" dest="${build.dir}">
+			<fileset dir="${src.dir}">
+				<include name="layout-all.css" />
+			</fileset>
+			<arg line="-jar" />
+			<arg path="${min.css.jar}" />
+			<arg value="-o" />
+			<targetfile />
+			<mapper type="glob" from="*.css" to="layout-min.css" />
+		</apply>
+	
+		<delete>
+			<fileset dir="${src.dir}">
+				<include name="layout-all.css" />
+			</fileset>
+		</delete>
+	</target>
+</project>

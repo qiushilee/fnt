@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ebsmarty" default="ebsmarty.main">
+	<property file="all.properties"/>
+
+	<!-- 日期 -->
+	<tstamp>
+		<format property="TODAY.CN" pattern="yyyy-MM-dd" locale="zh"/>
+	</tstamp>
+
+	<target name="ebsmarty.main">
+		<!-- 替换 CSS 路径 {{{ -->
+		<replaceregexp replace="${css.url}" flags="m" match=".link.*css.*src.*>" encoding="UTF-8">
+			<fileset dir="${build.dir}" includes="*.html" />
+		</replaceregexp>
+		<replaceregexp replace="" flags="g" match=".link.*css.*src.*>.*\n" encoding="UTF-8">
+			<fileset dir="${build.dir}" includes="*.html" />
+		</replaceregexp>
+		<!-- }}} -->
+
+		<!-- 复制 html, img, css, js 到 ${build.dir.zip} {{{ -->
+		<copy todir="${build.dir.zip}" overwrite="true" flatten="false">
+			<fileset dir="${build.dir}">
+				<include name="*.html" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir.zip}/css" overwrite="true" flatten="false">
+			<fileset dir="../css/">
+				<include name="*.css" />
+				<include name="*/*.css" />
+				<exclude name="src/" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir.zip}/img" overwrite="true" flatten="false">
+			<fileset dir="../img/">
+				<include name="*" />
+				<include name="*/*" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir.zip}/js" overwrite="true" flatten="false">
+			<fileset dir="../js/">
+				<include name="*" />
+				<include name="*/*" />
+			</fileset>
+		</copy>
+		<!-- }}} -->
+
+		<!-- 打包 ${build.dir} {{{ -->
+		<zip destfile="${build.dir.zip}/${zip.name}-release-html-${TODAY.CN}.zip" basedir="${build.dir}/zip" update="true"></zip>
+		<!-- }}} -->
+	</target>
+
+	<!-- 上传压缩包到 FTP 服务器 {{{ -->
+	<target name="ebsmarty.upload">
+		<ftp server="${ftp.server}"
+			remotedir="${ftp.server.dir}"
+			userid="${ftp.server.user}"
+			password="${ftp.server.psd}">
+			<fileset dir="${build.dir.zip}" includes="*.zip" />
+		</ftp>
+	</target>
+	<!-- }}} -->
+
+	<!-- 清理 ${build.dir} {{{ -->
+	<target name="ebsmarty.clear">
+		<delete includeEmptyDirs="true">
+			<fileset dir="${build.dir.zip}" />
+		</delete>
+	</target>
+	<!-- }}} -->
+</project>

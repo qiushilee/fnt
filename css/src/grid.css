@@ -1,0 +1,72 @@
+/*requires reset.css*/
+/*requires font.css*/
+/*requires common.css*/
+/*
+ * Grid style
+ * http://qslee.com/
+ *
+ * @author: showbei@gmail.com
+ */
+
+/* 全局 .grid {{{ */
+.grid {
+	margin:0 auto;
+}
+/* }}} */
+
+/* 宽度 {{{ */
+.grid-960 {
+	width:960px;
+}
+.grid-1000 {
+	width:1000px;
+}
+.grid-1002 {
+	width:1002px;
+}
+.grid-1003 {
+	width:1003px;
+}
+.grid-1004 {
+	width:1004px;
+}
+/* }}} */
+
+/* Padding {{{ */
+.g-p-5 {
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.g-p-10 {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.g-p-20 {
+	padding-top:20px;
+	padding-bottom:20px;
+}
+/* }}} */
+
+/* Margin {{{ */
+.g-m-5 {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.g-m-10 {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.g-m-20 {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+/* }}} */
+
+/* Font {{{ */
+.g-f-wb {
+	font-weight:bold;
+}
+.g-f-wn {
+	font-weight:normal;
+}
+/* }}} */
