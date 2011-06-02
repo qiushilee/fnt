@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="ebsmarty" default="ebsmarty.main">
+<project name="fnt" default="fnt.main">
 	<property file="all.properties"/>
 
 	<!-- 日期 -->
@@ -7,7 +7,7 @@
 		<format property="TODAY.CN" pattern="yyyy-MM-dd" locale="zh"/>
 	</tstamp>
 
-	<target name="ebsmarty.main">
+	<target name="fnt.main">
 		<!-- 替换 CSS 路径 {{{ -->
 		<replaceregexp replace="${css.url}" flags="m" match=".link.*css.*src.*>" encoding="UTF-8">
 			<fileset dir="${build.dir}" includes="*.html" />
@@ -49,19 +49,18 @@
 		<!-- }}} -->
 	</target>
 
-	<!-- 上传压缩包到 FTP 服务器 {{{ -->
-	<target name="ebsmarty.upload">
-		<ftp server="${ftp.server}"
-			remotedir="${ftp.server.dir}"
-			userid="${ftp.server.user}"
-			password="${ftp.server.psd}">
-			<fileset dir="${build.dir.zip}" includes="*.zip" />
-		</ftp>
+	<!-- 复制压缩包到根目录 {{{ -->
+	<target name="fnt.release">
+	    <copy todir="../" overwrite="true" flatten="false">
+		<fileset dir="${build.dir.zip}">
+		    <include name="*.zip" />
+		</fileset>
+	    </copy>
 	</target>
 	<!-- }}} -->
 
 	<!-- 清理 ${build.dir} {{{ -->
-	<target name="ebsmarty.clear">
+	<target name="fnt.clear">
 		<delete includeEmptyDirs="true">
 			<fileset dir="${build.dir.zip}" />
 		</delete>
