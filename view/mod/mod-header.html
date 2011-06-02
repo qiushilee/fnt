@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		{json file="build/data.json" assign="data"}
 		<title>{$data.base.title}</title>
+                {config_load file='build/data.conf'}
 {include file="mod/mod-css"}
 	</head>
 
