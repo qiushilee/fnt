@@ -23,10 +23,10 @@ call ant -buildfile build\build.xml -Dbuild.dir.zip=compile\zip\%cd_% -Dzip.name
 echo ----------------------
 echo 正在上传压缩包...
 echo ----------------------
-call ant -buildfile build\build.xml ebsmarty.upload -Dbuild.dir.zip=compile\zip\%cd_%
+call ant -buildfile build\build.xml fnt.release -Dbuild.dir.zip=compile\zip\%cd_%
 
 :: 清理文件
 echo ----------------------
 echo 正在清理文件...
 echo ----------------------
-call ant -buildfile build\build.xml ebsmarty.clear -Dbuild.dir.zip=compile\zip\%cd_%
+call ant -buildfile build\build.xml fnt.clear -Dbuild.dir.zip=compile\zip\%cd_%
